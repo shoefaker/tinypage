@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>A Tiny Page I Made for You</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #fff7fb;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    header p {
+      margin-top: 0.5rem;
+      color: #777;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+    section {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    }
+    section h2 {
+      margin-top: 0;
+      font-size: 1.3rem;
+    }
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 0.6rem 1.2rem;
+      background: #ff9acb;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
+    button:hover {
+      background: #ff7fbf;
+    }
+    .hidden {
+      display: none;
+      margin-top: 0.8rem;
+      color: #555;
+    }
+    details {
+      margin-top: 0.6rem;
+    }
+    details summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .icons-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 0.8rem;
+    }
+    .icon-card {
+      flex: 1 1 120px;
+      min-width: 120px;
+      text-align: center;
+      padding: 0.8rem;
+      border-radius: 12px;
+      background: #ffe3f1;
+      cursor: pointer;
+    }
+    .icon-card span {
+      font-size: 1.6rem;
+      display: block;
+    }
+    .icon-message {
+      margin-top: 0.6rem;
+      color: #555;
+    }
+    .tiny-heart-link {
+      text-align: right;
+      font-size: 0.9rem;
+      margin-top: 0.8rem;
+      cursor: pointer;
+      color: #ff5fa8;
+    }
+    .story-buttons {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.6rem;
+    }
+    .story-buttons button {
+      background: #ffd3e8;
+      color: #333;
+    }
+    .story-result {
+      margin-top: 0.6rem;
+      color: #555;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🧸 A Tiny Page I Made for You</h1>
+    <p>For my own use, and for whoever gets this link.</p>
+  </header>
+
+  <div class="container">
+
+    <!-- 1. Cute Mini-Message -->
+    <section id="mini-message">
+      <h2>🌸 Tiny Note</h2>
+      <p>Hi. I made this because you deserve something sweet today.</p>
+      <p>This is your reminder that you’re a good human, you’re doing great, and I’m proud of you in a very casual, non‑dramatic way.</p>
+      <button onclick="document.getElementById('surprise-text').classList.toggle('hidden')">
+        Tap for a surprise
+      </button>
+      <p id="surprise-text" class="hidden">
+        Surprise: it’s just me saying hi again. But still… hi.  
+        Okay that’s all. You may continue being adorable now.
+      </p>
+    </section>
+
+    <!-- 2. Notion-style toggles -->
+    <section id="notion-style">
+      <h2>🐻 Little Toggles</h2>
+      <p>A little page I made for you:</p>
+      <details>
+        <summary>Open me!</summary>
+        <p>I hope today feels soft around the edges.</p>
+      </details>
+      <details>
+        <summary>Another one?</summary>
+        <p>You make things better without even trying.</p>
+      </details>
+      <details>
+        <summary>Last one, promise.</summary>
+        <p>If you ever forget how great you are, come back here. I’ll remind you.</p>
+      </details>
+      <p style="margin-top:0.8rem;">Thanks for scrolling through my tiny masterpiece.</p>
+    </section>
+
+    <!-- 3. Google Sites-style icons -->
+    <section id="icons">
+      <h2>🎀 Extremely Serious & Professional Section</h2>
+      <p>Welcome to this extremely serious and professional part of the website I made just for you.</p>
+      <div class="icons-row">
+        <div class="icon-card" onclick="showIconMessage(1)">
+          <span>🐣</span>
+          <div>Click me</div>
+        </div>
+        <div class="icon-card" onclick="showIconMessage(2)">
+          <span>🍓</span>
+          <div>Click me too</div>
+        </div>
+        <div class="icon-card" onclick="showIconMessage(3)">
+          <span>🌼</span>
+          <div>Last one</div>
+        </div>
+      </div>
+      <p id="icon-message" class="icon-message"></p>
+      <div class="tiny-heart-link" onclick="toggleBonus()">
+        ❤️ tiny secret bonus
+      </div>
+      <p id="bonus-text" class="hidden">
+        Bonus level unlocked. Reward: one virtual hug.
+      </p>
+    </section>
+
+    <!-- 4. Jotform Cards-style interactive story -->
+    <section id="story">
+      <h2>💛 Tiny Interactive Story</h2>
+      <p>Hi, welcome to this tiny interactive thing I made.</p>
+      <p>How’s your day going?</p>
+      <div class="story-buttons">
+        <button onclick="setStoryResult('good')">Good</button>
+        <button onclick="setStoryResult('meh')">Meh</button>
+        <button onclick="setStoryResult('bad')">Could be better</button>
+      </div>
+      <p id="story-result" class="story-result"></p>
+      <p style="margin-top:0.8rem;">
+        Here’s one thing I appreciate about you: you’re easy to talk to.
+      </p>
+      <p>Okay, that’s it. You may return to your regularly scheduled life.</p>
+    </section>
+
+  </div>
+
+  <footer>
+    Made for whoever gets this link. 💌
+  </footer>
+
+  <script>
+    function showIconMessage(id) {
+      const msg = document.getElementById('icon-message');
+      if (id === 1) msg.textContent = "You’re cute.";
+      if (id === 2) msg.textContent = "You’re fun.";
+      if (id === 3) msg.textContent = "I like talking to you.";
+    }
+
+    function toggleBonus() {
+      const bonus = document.getElementById('bonus-text');
+      bonus.classList.toggle('hidden');
+    }
+
+    function setStoryResult(type) {
+      const el = document.getElementById('story-result');
+      if (type === 'good') el.textContent = "Nice. I like that for you.";
+      if (type === 'meh') el.textContent = "Understandable. Here’s a digital snack 🍪.";
+      if (type === 'bad') el.textContent = "Sending you a gentle forehead kiss energy.";
+    }
+  </script>
+</body>
+</html>
